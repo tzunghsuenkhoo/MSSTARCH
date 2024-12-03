@@ -1,5 +1,4 @@
-#' This function estimates the parameters of n locations with T observations in 2 regimes. The smoothed probabilities 
-#' the regimes are also generated using the estimated parameters. 
+#' This function estimates the parameters of n locations with T observations in 2 regimes. The smoothed probabilities of two regimes are also generated using the estimated parameters. 
 #' @importFrom spdep nb2mat cell2nb
 #' @importFrom FastGP rcppeigen_invert_matrix rcppeigen_get_det
 #' @importFrom Rsolnp solnp
