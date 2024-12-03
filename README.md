@@ -5,5 +5,6 @@ The data set which contains the log returns of 26 Asian stock exchanges, NASDAQ,
 included as "stock_exchanges_28.rda".
 <br /> 
 References:
+<br /> 
 Khoo, T. H., Pathmanathan, D., Otto, P., & Dabo‐Niang, S. (2024). A Markov‐switching spatio‐temporal ARCH model. Stat, 13(3), e713.
 
