@@ -9,7 +9,8 @@ References:
 <br /> 
 Khoo, T. H., Pathmanathan, D., Otto, P., & Dabo‐Niang, S. (2024). A Markov‐switching spatio‐temporal ARCH model. Stat, 13(3), e713.
 <br /> 
+<br /> 
 To install this package:
 install.packages('devtools')
 library(devtools)
-install_github("tzunghsuenkhoo/GDFPCA")
+install_github("tzunghsuenkhoo/MSSTARCH")
