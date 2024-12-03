@@ -8,4 +8,8 @@ included as "stock_exchanges_28.rda".
 References:
 <br /> 
 Khoo, T. H., Pathmanathan, D., Otto, P., & Dabo‐Niang, S. (2024). A Markov‐switching spatio‐temporal ARCH model. Stat, 13(3), e713.
-
+<br /> 
+To install this package:
+install.packages('devtools')
+library(devtools)
+install_github("tzunghsuenkhoo/GDFPCA")
