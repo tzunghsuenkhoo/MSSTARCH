@@ -1,4 +1,4 @@
-#' This functions simulate the data of n locations in a period of T1 which have a Markovian structure of 2 regimes. 
+#' This function simulates data of n locations in a period of T1 which have a Markovian structure of 2 regimes. 
 #' @importFrom spdep nb2mat cell2nb
 #' @importFrom markovchain markovchainSequence
 #' @importFrom methods new
