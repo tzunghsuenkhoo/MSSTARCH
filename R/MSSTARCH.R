@@ -78,38 +78,35 @@ MSSTARCH <- function(Y_i, Wn)
   objfun <- function(x) 
   { 
     #Parameters setting
-    lamb1  =  -1 + 2/(1+exp(-x[1]))
-    gamma1 =  -1 + 2/(1+exp(-x[2]))
-    rho1   =  -1 + 2/(1+exp(-x[3]))
-    
-    lamb2  =  -1 + 2/(1+exp(-x[4]))
-    gamma2 =  -1 + 2/(1+exp(-x[5]))
-    rho2   =  -1 + 2/(1+exp(-x[6]))
-    
-    p = 1/(1+exp(-x[7]))
-    q = 1/(1+exp(-x[8]))
-    
-    a1 = x[9]
-    a2 = x[10]
-    s1 = exp(x[11])
-    P = matrix(c(p,1-q,1-p,q),nrow=2,ncol=2,byrow=TRUE)
-    pi_inf = c( (1-q)/(2-p-q) , (1-p)/(2-p-q))
-    ksi = pi_inf
-    L = c(0,0)
-    LL = rep(0,T1-1)
-    Sn1 = (diag(n)-lamb1*Wn)
-    Sn2 = (diag(n)-lamb2*Wn)
+    lamb1   =  -1 + 2/(1+exp(-x[1]))
+    gamma1  =  -1 + 2/(1+exp(-x[2]))
+    rho1    =  -1 + 2/(1+exp(-x[3]))
+    lamb2   =  -1 + 2/(1+exp(-x[4]))
+    gamma2  =  -1 + 2/(1+exp(-x[5]))
+    rho2    =  -1 + 2/(1+exp(-x[6]))
+    p       = 1/(1+exp(-x[7]))
+    q       = 1/(1+exp(-x[8]))
+    a1      = x[9]
+    a2      = x[10]
+    s1      = exp(x[11])
+    P       = matrix(c(p,1-q,1-p,q),nrow=2,ncol=2,byrow=TRUE)
+    pi_inf  = c( (1-q)/(2-p-q) , (1-p)/(2-p-q))
+    ksi     = pi_inf
+    L       = c(0,0)
+    LL      = rep(0,T1-1)
+    Sn1     = (diag(n)-lamb1*Wn)
+    Sn2     = (diag(n)-lamb2*Wn)
     Det_Sn1 <- FastGP::rcppeigen_get_det(Sn1)
     Det_Sn2 <- FastGP::rcppeigen_get_det(Sn2)
     # Build LL
     for (tt in 2:T1){
-      e1 = Sn1%*%Y_i[tt,] - gamma1*Y_i[tt-1,] - rho1*Wn%*%Y_i[tt-1,] - rep(a1,n) + rep(1.27,n)
-      e2 = Sn2%*%Y_i[tt,] - gamma2*Y_i[tt-1,] - rho2*Wn%*%Y_i[tt-1,] - rep(a2,n) + rep(1.27,n)
+      e1     = Sn1%*%Y_i[tt,] - gamma1*Y_i[tt-1,] - rho1*Wn%*%Y_i[tt-1,] - rep(a1,n) + rep(1.27,n)
+      e2     = Sn2%*%Y_i[tt,] - gamma2*Y_i[tt-1,] - rho2*Wn%*%Y_i[tt-1,] - rep(a2,n) + rep(1.27,n)
       f_yt_1 = Det_Sn1*((s1*2*pi)^(-n/2))*exp((-0.5/(s1*1))*t(e1)%*%e1)
       f_yt_2 = Det_Sn2*((s1*2*pi)^(-n/2))*exp((-0.5/(s1*1))*t(e2)%*%e2)
-      L = c(ksi[1]*f_yt_1, ksi[2]*f_yt_2)
-      xsi = L/sum(L)
-      ksi = P%*%xsi
+      L      = c(ksi[1]*f_yt_1, ksi[2]*f_yt_2)
+      xsi    = L/sum(L)
+      ksi    = P%*%xsi
       LL[tt] = log(L[1]+L[2])
     }
     return(-sum(LL))
