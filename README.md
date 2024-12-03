@@ -13,4 +13,5 @@ Khoo, T. H., Pathmanathan, D., Otto, P., & Dabo‐Niang, S. (2024). A Markov‐s
 To install this package: <br /> 
 install.packages('devtools') <br /> 
 library(devtools) <br /> 
-install_github("tzunghsuenkhoo/MSSTARCH")
+install_github("tzunghsuenkhoo/MSSTARCH")  <br /> 
+library(MSSTARCH)
