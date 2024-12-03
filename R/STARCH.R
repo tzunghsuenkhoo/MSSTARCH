@@ -1,4 +1,4 @@
-#' QMLE estimation of spatio-temporal data with 1 regime.
+#' QMLE estimation of spatio-temporal data of n locations in a period of length T with 1 regime.
 #' @importFrom bbmle mle2
 #' @importFrom msm deltamethod
 #' @param Y_i  A \eqn{T \times n} matrix consisting \eqn{T} observations of \eqn{n} spatial locations.
